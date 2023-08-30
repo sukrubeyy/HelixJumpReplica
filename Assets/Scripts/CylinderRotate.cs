@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class cylinderScript : MonoBehaviour
+public class CylinderRotate : MonoBehaviour
 {
     public float speed;
     private void FixedUpdate()

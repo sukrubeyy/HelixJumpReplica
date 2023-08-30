@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MoveCameraScript : MonoBehaviour
+public class CameraFollower : MonoBehaviour
 {
     public Transform ball;
     public Vector3 difference;
@@ -18,7 +18,7 @@ public class MoveCameraScript : MonoBehaviour
         if(ball.transform.position.y<transform.position.y+ posOffset)
         {
             Vector3 pos = difference + ball.position;
-            transform.position = Vector3.Lerp(transform.position, pos,.009f);
+            transform.position = Vector3.Lerp(transform.position, pos,.1f);
         }
       
     }

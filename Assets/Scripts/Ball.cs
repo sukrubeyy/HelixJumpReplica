@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class ballScript : MonoBehaviour
+public class Ball : MonoBehaviour
 {
     public float jumpSpeed;
     Rigidbody rb;
@@ -16,21 +16,21 @@ public class ballScript : MonoBehaviour
     {
         if (collision.gameObject.tag == "platform")
         {
-            var asdfs = collision.contacts[0].point;
-            GameObject partic = Instantiate(particleEff,collision.contacts[0].point
+            GameObject TrailObject = Instantiate(particleEff,collision.contacts[0].point
              ,transform.rotation);
-            float deger = 0.005555f;
-            partic.transform.parent = collision.gameObject.transform;
+            TrailObject.transform.parent = collision.gameObject.transform;
             rb.AddForce(Vector3.up * jumpSpeed, ForceMode.Impulse);
         }
 
         if (collision.gameObject.tag == "obstacle")
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            GameManager.Instance.OpenLosePanel();
+            //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
         if(collision.gameObject.tag=="nextLevel")
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            GameManager.Instance.OpenWinPanel();
+            //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
 
     }
